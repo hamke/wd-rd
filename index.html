@@ -148,7 +148,7 @@
 	<script id="iframeTemplate" type="text/html"></script>
 
   <script type="text/javascript">
-		function detectSameOriginError() {
+		function processAfterOnload() {
 			//  var that = document.getElementById('iframe');
 			//  try{
 			//     (that.contentWindow||that.contentDocument).location.href;
@@ -165,7 +165,7 @@
 				let Sites = wptalk_result;
 				let randomValue = Sites;
 				// let randomValue = Sites[Math.round((Math.random()*1000))%Sites.length];
-				var iframeContent = '<iframe id="iframe" onload="detectSameOriginError()" src="http://' + randomValue + '/" frameborder="0" width="100%;"></iframe>';
+				var iframeContent = '<iframe id="iframe" onload="processAfterOnload()" src="http://' + randomValue + '/" frameborder="0" width="100%;"></iframe>';
 				let footerUrl = '<a href="http://' + randomValue + '/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> ' + randomValue + ' <i class="fas fa-arrow-right"></i></a>';
 				var element = document.getElementById("placeholder");
 				document.getElementById("iframeTemplate").innerHTML = iframeContent;
