@@ -144,12 +144,13 @@
 
   <script type="text/javascript">
     function displaySites(){
-      const url = 'https://www.wp-data.com/api/sites/100/';
+      const url = 'https://www.wp-data.com/api/sites/1/';
       fetch(url)
       .then(res => res.json())
       .then(wptalk_result => {
         let Sites = wptalk_result;
-        let randomValue = Sites[Math.round((Math.random()*1000))%Sites.length];
+				let randomValue = Sites;
+        // let randomValue = Sites[Math.round((Math.random()*1000))%Sites.length];
   			let iframeContent = '<iframe id="iframe" src="http://' + randomValue + '/" frameborder="0" width="100%;"></iframe>';
   			let footerUrl = '<a href="http://' + randomValue + '/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> ' + randomValue + ' <i class="fas fa-arrow-right"></i></a>';
   			let element = document.getElementById("placeholder");
