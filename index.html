@@ -133,6 +133,8 @@
 		</div>
 	</div>
 
+	<!-- Content : Start -->
+
 	<div id="placeholder" style="width:100%;height:100%;">
 		<iframe id="iframe" src="https://www.wp-data.com/" frameborder="0" width="100%;"></iframe>
 	</div>
@@ -140,6 +142,8 @@
 	<div id="footer-banner">
 		<a href="https://www.wp-data.com/" target="_blank"><i class="fas fa-globe"></i> www.wp-data.com <i class="fas fa-arrow-right"></i></a>
 	</div>
+
+	<!-- Content : End -->
 
 	<script id="iframeTemplate" type="text/html"></script>
 
@@ -161,6 +165,15 @@
   			element.innerHTML = html;
   			document.getElementById("footer-banner").innerHTML = footerUrl;
       })
+			iframe.onload = function(){
+			 var that = document.getElementById('iframe');
+			 try{
+			    (that.contentWindow||that.contentDocument).location.href;
+			 }
+			 catch(err){
+			    displaySites();
+				}
+			}
     }
     // window.onload = displaySites();
   </script>
