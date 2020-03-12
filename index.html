@@ -149,19 +149,22 @@
 
   <script type="text/javascript">
 
-		const queryString = window.location.search;
-		const urlParams = new URLSearchParams(queryString);
-		const urlInfo = urlParams.get('url');
-		if ( urlInfo != '' ) {
-			var iframeContent = '<iframe id="iframe" onload="processAfterOnload()" src="http://' + urlInfo + '/" frameborder="0" width="100%;"></iframe>';
-			var footerUrl = '<a href="http://' + urlInfo + '/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> ' + urlInfo + ' <i class="fas fa-arrow-right"></i></a>';
-			var element = document.getElementById("placeholder");
-			document.getElementById("iframeTemplate").innerHTML = iframeContent;
-			var template = document.getElementById("iframeTemplate");
-			var html = template.innerHTML;
-			element.innerHTML = html;
-			document.getElementById("footer-banner").innerHTML = footerUrl;
-		}
+		// const queryString = window.location.search;
+		// const urlParams = new URLSearchParams(queryString);
+		// const urlInfo = urlParams.get('url');
+		// if ( urlInfo != '' ) {
+		// 	var siteURL = urlInfo;
+		// } else {
+		// 	var siteURL = 'www.wp-data.com';
+		// }
+		// var iframeContent = '<iframe id="iframe" onload="processAfterOnload()" src="http://' + siteURL + '/" frameborder="0" width="100%;"></iframe>';
+		// var footerUrl = '<a href="http://' + siteURL + '/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> ' + siteURL + ' <i class="fas fa-arrow-right"></i></a>';
+		// var element = document.getElementById("placeholder");
+		// document.getElementById("iframeTemplate").innerHTML = iframeContent;
+		// var template = document.getElementById("iframeTemplate");
+		// var html = template.innerHTML;
+		// element.innerHTML = html;
+		// document.getElementById("footer-banner").innerHTML = footerUrl;
 
 		function processAfterOnload() {
 			//  var that = document.getElementById('iframe');
