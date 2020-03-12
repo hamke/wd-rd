@@ -148,7 +148,8 @@
 	<script id="iframeTemplate" type="text/html"></script>
 
   <script type="text/javascript">
-
+		const url = 'https://www.wp-data.com/api/sites/1/';
+		const uri = window.location.toString();
 		const queryString = window.location.search;
 		const urlParams = new URLSearchParams(queryString);
 		var urlInfo = urlParams.get('url');
@@ -176,7 +177,10 @@
 			// }
 		}
     function displaySites(){
-			const url = 'https://www.wp-data.com/api/sites/1/';
+	    if (uri.indexOf("?") > 0) {
+        var clean_uri = uri.substring(0, uri.indexOf("?"));
+        window.history.replaceState({}, document.title, clean_uri);
+	    }
 			fetch(url)
 			.then(res => res.json())
 			.then(wptalk_result => {
