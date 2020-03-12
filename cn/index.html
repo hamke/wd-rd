@@ -147,7 +147,27 @@
 
 	<script id="iframeTemplate" type="text/html"></script>
 
-  <script type="text/javascript">
+	<script type="text/javascript">
+		const url = 'https://www.wp-data.com/api/sites/1/';
+		const uri = window.location.toString();
+		const clean_uri = uri.substring(0, uri.indexOf("?"));
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		var urlInfo = urlParams.get('url');
+		if ( !urlInfo.length ) {
+			var siteURL = 'www.wp-data.com';
+		} else {
+			var siteURL = urlInfo;
+		}
+		var iframeContent = '<iframe id="iframe" onload="processAfterOnload()" src="http://' + siteURL + '/" frameborder="0" width="100%;"></iframe>';
+		var footerUrl = '<a href="http://' + siteURL + '/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> ' + siteURL + ' <i class="fas fa-arrow-right"></i></a>';
+		var element = document.getElementById("placeholder");
+		document.getElementById("iframeTemplate").innerHTML = iframeContent;
+		var template = document.getElementById("iframeTemplate");
+		var html = template.innerHTML;
+		element.innerHTML = html;
+		document.getElementById("footer-banner").innerHTML = footerUrl;
+
 		function processAfterOnload() {
 			//  var that = document.getElementById('iframe');
 			//  try{
@@ -158,19 +178,21 @@
 			// }
 		}
     function displaySites(){
-			const url = 'https://www.wp-data.com/api/sites/1/';
+      window.history.replaceState({}, document.title, clean_uri);
 			fetch(url)
 			.then(res => res.json())
 			.then(wptalk_result => {
 				let Sites = wptalk_result;
 				let randomValue = Sites;
-				// let randomValue = Sites[Math.round((Math.random()*1000))%Sites.length];
-				var iframeContent = '<iframe id="iframe" onload="processAfterOnload()" src="http://' + randomValue + '/" frameborder="0" width="100%;"></iframe>';
+				let new_uri = clean_uri + '?url=' + randomValue;
+				window.history.replaceState({}, document.title, new_uri);
+				// let randomValue = Sites[Math.round((Math.random()*1000))%Sites.length]; // If the server send array sites data
+				let iframeContent = '<iframe id="iframe" onload="processAfterOnload()" src="http://' + randomValue + '/" frameborder="0" width="100%;"></iframe>';
 				let footerUrl = '<a href="http://' + randomValue + '/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> ' + randomValue + ' <i class="fas fa-arrow-right"></i></a>';
-				var element = document.getElementById("placeholder");
+				let element = document.getElementById("placeholder");
 				document.getElementById("iframeTemplate").innerHTML = iframeContent;
-				var template = document.getElementById("iframeTemplate");
-				var html = template.innerHTML;
+				let template = document.getElementById("iframeTemplate");
+				let html = template.innerHTML;
 				element.innerHTML = html;
 				document.getElementById("footer-banner").innerHTML = footerUrl;
 			})
