@@ -149,6 +149,23 @@
 
   <script type="text/javascript">
 
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		var urlInfo = urlParams.get('url');
+		if ( !urlInfo.length ) {
+			var siteURL = 'www.wp-data.com';
+		} else {
+			var siteURL = urlInfo;
+		}
+		var iframeContent = '<iframe id="iframe" onload="processAfterOnload()" src="http://' + siteURL + '/" frameborder="0" width="100%;"></iframe>';
+		var footerUrl = '<a href="http://' + siteURL + '/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> ' + siteURL + ' <i class="fas fa-arrow-right"></i></a>';
+		var element = document.getElementById("placeholder");
+		document.getElementById("iframeTemplate").innerHTML = iframeContent;
+		var template = document.getElementById("iframeTemplate");
+		var html = template.innerHTML;
+		element.innerHTML = html;
+		document.getElementById("footer-banner").innerHTML = footerUrl;
+
 		function processAfterOnload() {
 			//  var that = document.getElementById('iframe');
 			//  try{
