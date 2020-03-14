@@ -277,21 +277,21 @@ a {
   box-shadow: 0 1px 0 #ffa339 inset;
   color: #fff;
   text-decoration: none;
-  text-shadow: 1px 1px 3px #ff8b4c
+  text-shadow: 1px 1px 3px #ff8e0b
 }
 
 .purchase a:hover {
-  background-color: #ff8b4c;
-  background: #ff8b4c;
-  border-color: #ff8b4c;
-  box-shadow: 0 1px 0 #ff8b4c inset;
+  background-color: #ff8e0b;
+  background: #ff8e0b;
+  border-color: #ff8e0b;
+  box-shadow: 0 1px 0 #ff8e0b inset;
   color: #fff;
-  text-shadow: 2px 1px 3px #ff8f1f
+  text-shadow: 2px 1px 3px #ff8e0b
 }
 
 .purchase a:focus {
-  border-color: #ff8b4c;
-  box-shadow: 0 1px 0 #ff8b4c inset, 1px 1px 3px #ff8b4c
+  border-color: #ff8e0b;
+  box-shadow: 0 1px 0 #ff8e0b inset, 1px 1px 3px #ff8e0b
 }
 
 .purchase a img {
@@ -299,6 +299,30 @@ a {
   margin-right: 5px;
   margin-top: -3px;
   height: 18px
+}
+
+.purchase #wp-analytics {
+  background-color: #ff8b4c;
+  background: #ff8b4c;
+  border-color: #ff8b4c;
+  box-shadow: 0 1px 0 #ff8b4c inset;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 1px 1px 3px #ff772d;
+}
+
+.purchase #wp-analytics:hover {
+  background-color: #ff772d;
+  background: #ff772d;
+  border-color: #ff772d;
+  box-shadow: 0 1px 0 #ff772d inset;
+  color: #fff;
+  text-shadow: 2px 1px 3px #ff772d
+}
+
+.purchase #wp-analytics:focus {
+  border-color: #ff8b4c;
+  box-shadow: 0 1px 0 #ff8b4c inset, 1px 1px 3px #ff772d
 }
 
 .close a {
