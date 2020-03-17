@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="robots" content="noindex, nofollow">
-    <title>WP-DATA.COM</title>
+    <title>Iframe View Checker - WP-DATA.COM</title>
     <link rel="shortcut icon" type="image/x-icon" href="./../assets/img/favicon.ico" />
     <link rel="stylesheet" href="./css/main.css">
   </head>
@@ -13,7 +13,7 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="./" class="navbar-brand">WP-DATA.COM</a>
+          <a href="./" class="navbar-brand">Iframe View Checker</a>
         </div>
       </div>
     </div>
@@ -48,6 +48,8 @@
           var urlParam = document.getElementById('url').value;
           if ( urlParam != '' ) {
             window.open("https://random.wp-data.com/?url=" + urlParam, "_blank");
+          } else {
+            return false;
           }
         }
     </script>
